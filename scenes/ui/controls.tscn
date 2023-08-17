@@ -1,0 +1,35 @@
+[gd_scene load_steps=2 format=3 uid="uid://blpbs5ikjhhca"]
+
+[ext_resource type="Script" path="res://scripts/ui/controls.gd" id="1_j56xk"]
+
+[node name="WindowControl" type="Window"]
+title = "Scene Control"
+initial_position = 1
+size = Vector2i(600, 71)
+script = ExtResource("1_j56xk")
+
+[node name="Wrapper" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Root" type="VBoxContainer" parent="Wrapper"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HBoxContainerMoreControls" type="HBoxContainer" parent="Wrapper/Root"]
+layout_mode = 2
+
+[node name="SceneAutomaticsBtn" type="Button" parent="Wrapper/Root/HBoxContainerMoreControls"]
+layout_mode = 2
+text = "Scene Automatics"
+
+[connection signal="close_requested" from="." to="." method="_on_close_requested"]
+[connection signal="pressed" from="Wrapper/Root/HBoxContainerMoreControls/SceneAutomaticsBtn" to="." method="_on_scene_automatics_btn_pressed"]

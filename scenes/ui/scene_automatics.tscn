@@ -1,0 +1,58 @@
+[gd_scene load_steps=2 format=3 uid="uid://dpfnwc14vleex"]
+
+[ext_resource type="Script" path="res://scripts/ui/scene_automatics.gd" id="1_5f6cw"]
+
+[node name="SceneAutomatics" type="Window"]
+title = "Scene Automatics"
+initial_position = 4
+size = Vector2i(500, 800)
+script = ExtResource("1_5f6cw")
+scene_select_path = NodePath("MarginContainer/MainVBoxContainer/SceneSelect")
+scene_item_select_path = NodePath("MarginContainer/MainVBoxContainer/HBoxContainer/SceneItemSelect")
+regex_container_path = NodePath("MarginContainer/MainVBoxContainer/ScrollContainer/RegexVBoxContainer")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+offset_right = 500.0
+offset_bottom = 800.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="MainVBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="SceneSelect" type="OptionButton" parent="MarginContainer/MainVBoxContainer"]
+layout_mode = 2
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/MainVBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/MainVBoxContainer"]
+layout_mode = 2
+
+[node name="SceneItemSelect" type="OptionButton" parent="MarginContainer/MainVBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SceneItemAdd" type="Button" parent="MarginContainer/MainVBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Add Scene Item Regex"
+
+[node name="HSeparator2" type="HSeparator" parent="MarginContainer/MainVBoxContainer"]
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/MainVBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="RegexVBoxContainer" type="VBoxContainer" parent="MarginContainer/MainVBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[connection signal="close_requested" from="." to="." method="_on_close_requested"]
+[connection signal="item_selected" from="MarginContainer/MainVBoxContainer/SceneSelect" to="." method="_on_scene_select_item_selected"]
+[connection signal="pressed" from="MarginContainer/MainVBoxContainer/HBoxContainer/SceneItemAdd" to="." method="_on_scene_item_add_pressed"]

@@ -1,0 +1,8 @@
+[configuration]
+
+entry_symbol = "window_library_init"
+compatibility_minimum = 4.1
+
+[libraries]
+windows.debug.x86_64 = "res://window/bin/Debug/window.windows.debug.64.dll"
+windows.release.x86_64 = "res://window/bin/Release/window.windows.release.64.dll"

@@ -1,0 +1,13 @@
+# IDE
+.vscode
+
+# Godot 4+ specific ignores
+.godot/
+
+# Build artefacts etc
+/build/
+/window/
+
+*.dll
+src/**/*.obj
+src/**/*.o

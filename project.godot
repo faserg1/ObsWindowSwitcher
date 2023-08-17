@@ -1,0 +1,43 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="ObsWindowSwitcher"
+run/main_scene="res://scenes/main_control.tscn"
+config/features=PackedStringArray("4.1", "Mobile")
+run/max_fps=60
+config/icon="res://resources/app/icon.svg"
+
+[audio]
+
+buses/default_bus_layout="res://resources/default_bus_layout.tres"
+
+[autoload]
+
+ObsWebsocket="*res://addons/obs-websocket-gd/obs_websocket.gd"
+PersistentProperties="*res://scripts/common/persistent_properties.gd"
+WindowHelperScript="*res://scripts/common/WindowHelperScript.gd"
+SceneAutomaticsGlobal="*res://scripts/scene_control/scene_automatics_global.gd"
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/size/initial_position_type=0
+window/size/initial_screen=1
+window/subwindows/embed_subwindows=false
+window/per_pixel_transparency/allowed=true
+window/vsync/vsync_mode=0
+
+[rendering]
+
+renderer/rendering_method="mobile"
+viewport/transparent_background=true

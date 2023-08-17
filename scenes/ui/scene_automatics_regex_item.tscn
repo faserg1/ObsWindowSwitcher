@@ -1,0 +1,34 @@
+[gd_scene load_steps=2 format=3 uid="uid://dvihlfng586nj"]
+
+[ext_resource type="Script" path="res://scripts/ui/scene_automatics_regex_item.gd" id="1_lv6a2"]
+
+[node name="RegexItemVBoxContainer" type="VBoxContainer"]
+script = ExtResource("1_lv6a2")
+scene_name_path = NodePath("RegexItem/SceneName")
+regex_edit_path = NodePath("LineEdit")
+save_btn_path = NodePath("RegexItem/SaveButton")
+
+[node name="RegexItem" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="SceneName" type="Label" parent="RegexItem"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "SceneName"
+
+[node name="SaveButton" type="Button" parent="RegexItem"]
+layout_mode = 2
+disabled = true
+text = "Save"
+
+[node name="RemoveButton" type="Button" parent="RegexItem"]
+layout_mode = 2
+text = "Remove"
+
+[node name="LineEdit" type="LineEdit" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[connection signal="pressed" from="RegexItem/SaveButton" to="." method="_on_save_button_pressed"]
+[connection signal="pressed" from="RegexItem/RemoveButton" to="." method="_on_remove_button_pressed"]
+[connection signal="text_changed" from="LineEdit" to="." method="_on_line_edit_text_changed"]

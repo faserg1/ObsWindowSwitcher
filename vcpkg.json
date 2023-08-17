@@ -1,0 +1,9 @@
+{
+  "name": "live2davatar",
+  "version-string": "0.0.1",
+  "dependencies": [
+    "giflib",
+    "vulkan"
+  ]
+}
+
